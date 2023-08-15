@@ -30,10 +30,10 @@ def eq_solver(a,b,c):
             shorthand=input("do you want a shorthand for this expression? yes/no ")
             if shorthand == "yes":
                 if x > 0:
-                    short = str(a)+"(x-"+str(x)+")"
+                    short = f'{a}(x-{round(x,2)})'
                     print("shorthand is:",short)
                 else :
-                    short = a+"(x+"+str(x)+")"
+                    short = f'{a}(x{round(x)})'
                     print("shorthand is:",short)
         elif delta > 0 :
             x1 = (-b-sqrt(delta))/(2*a)
@@ -44,16 +44,16 @@ def eq_solver(a,b,c):
             shorthand = input("do you want a shorhand for this expression? yes/no ")
             if shorthand == "yes":
                 if x1 > 0 and x2 >0:
-                    short = str(a)+"(x-"+str(round(x1,2))+")(x-"+str(round(x2,2))+")"
+                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
                     print("shorthand is:",round(short))
                 elif x1 > 0 and x2 <0 :
-                    short = str(a)+"(x-"+str(round(x1,2))+")(x"+str(round(x2,2))+")"
+                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
                     print("the shorthand is:",short)
                 elif x1 < 0 and x2 >0 :
-                    short = str(a)+"(x"+str(round(x1,2))+")(x-"+str(round(x2,2))+")"
+                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
                     print("shorthand is:",short)
                 else:
-                    short = str(a)+"(x"+str(round(x1,2))+")(x"+str(round(x2,2))+")" 
+                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
                     print("shorthand is:",short)              
         else:
             print("there is no results")
@@ -147,4 +147,6 @@ if retry.lower() == "yes":  # Corrected this line
             print("Have a nice day!")
     else:
         print("negative numbers unacceptable")
+else: 
+    print("have fun!")
     
