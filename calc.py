@@ -3,8 +3,7 @@ from math import sqrt
 def calc(a,b):
     try:
         choice = input("Choose the operation: +|-|*|/ ")
-        valid_choice = ("+","-","*","/")
-        if choice not in valid_choice:
+        if choice not in ("+","-","*","/"):
             print("error! ")
             return
         solution = eval(f'{a} {choice} {b}')
@@ -64,7 +63,13 @@ print("Welcome to my structured program")
 time.sleep(1)
 print("You can solve equations or perform calculations")
 time.sleep(1)
-a, b, c = float(input("Enter the first value: ")), float(input("Enter the second value: ")), float(input("Enter the third value: "))
+a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
+number3_check = input('do you need the third value?')
+if number3_check == "yes" :
+    c=float(input("Enter the third value: "))
+    pass
+else:
+    pass
 options = input("Select your choice: calc/eq_solver ")
 
 if options.lower() == "calc":
