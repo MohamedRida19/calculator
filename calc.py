@@ -58,19 +58,27 @@ def eq_solver(a,b,c):
         else:
             print("there is no results")
 
+
+print("Asalamo Alaykom! i hope you enjoying here")
 time.sleep(3)
 print("Welcome to my structured program")
 time.sleep(1)
 print("You can solve equations or perform calculations")
 time.sleep(1)
-a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
-number3_check = input('do you need the third value?')
-if number3_check == "yes" :
-    c=float(input("Enter the third value: "))
-    pass
-else:
-    pass
 options = input("Select your choice: calc/eq_solver ")
+if options == "calc":
+    a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
+elif options == eq_solver:
+    number3_check = input('do you need the third value?')
+    if number3_check == "yes" :
+        c=float(input("Enter the third value: "))
+        pass
+
+    else:
+        pass
+else: 
+    print("worng input! pls try again.")
+
 
 if options.lower() == "calc":
     print("Starting calculation...")
