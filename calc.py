@@ -47,13 +47,13 @@ def eq_solver(a,b,c):
                     short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
                     print("shorthand is:",round(short))
                 elif x1 > 0 and x2 <0 :
-                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
+                    short = f"{a}(x-{round(x1,2)})(x{round(x2,2)}) "
                     print("the shorthand is:",short)
                 elif x1 < 0 and x2 >0 :
-                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
+                    short = f"{a}(x{round(x1,2)})(x-{round(x2,2)}) "
                     print("shorthand is:",short)
                 else:
-                    short = f"{a}(x-{round(x1,2)})(x-{round(x2,2)}) "
+                    short = f"{a}(x{round(x1,2)})(x{round(x2,2)}) "
                     print("shorthand is:",short)              
         else:
             print("there is no results")
