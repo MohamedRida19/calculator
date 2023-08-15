@@ -1,19 +1,18 @@
 import time
 from math import sqrt
 def calc(a,b):
-    choice = input("chose the operation: +|-|*|/ ")
-    if choice == "+":
-        x= a+b
-        print("the result is:",round(x,2))
-    elif choice == "-":
-        x= a-b
-        print ("the result is:",round(x,2))
-    elif choice == "*":
-        x= a*b
-        print("the result is:",round(x,2))
-    elif choice == "/":
-        x= a/b
-        print ("the result is:",round(x,2))
+    try:
+        choice = input("chose the operation: +|-|*|/ ")
+        valid_choice = ("+","-","*","/")
+        if choice not in valid_choice:
+            print("error! ")
+            return
+        expression = f'{a} {choice} {b}'
+        solution = eval(expression)
+        print(f'the expression is: {expression}')
+        print(f'the solution is: {solution}')
+    except:
+        print("something wrong! try again pls")
 
 def eq_solver(a,b,c):
     choice = input("chose the operation lvl: eq1/eq2 ")
@@ -66,7 +65,7 @@ time.sleep(3)
 print("Welcome to my structured program")
 time.sleep(1)
 print("You can solve equations or perform calculations")
-time.sleep(1    )
+time.sleep(1)
 a, b, c = float(input("Enter the first value: ")), float(input("Enter the second value: ")), float(input("Enter the third value: "))
 options = input("Select your choice: calc/eq_solver ")
 
