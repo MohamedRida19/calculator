@@ -2,14 +2,12 @@ import time
 from math import sqrt
 def calc(a,b):
     try:
-        choice = input("chose the operation: +|-|*|/ ")
+        choice = input("Choose the operation: +|-|*|/ ")
         valid_choice = ("+","-","*","/")
         if choice not in valid_choice:
             print("error! ")
             return
-        expression = f'{a} {choice} {b}'
-        solution = eval(expression)
-        print(f'the expression is: {expression}')
+        solution = eval(f'{a} {choice} {b}')
         print(f'the solution is: {solution}')
     except:
         print("something wrong! try again pls")
@@ -78,7 +76,9 @@ if options.lower() == "calc":
     time.sleep(1)
     print(".")
     time.sleep(1)
-    calc(a, b)
+    calc(a,b)
+
+
 elif options.lower() == "eq_solver":
     print("Starting equation solving...")
     time.sleep(2)
@@ -88,36 +88,50 @@ elif options.lower() == "eq_solver":
     time.sleep(1)
     print(".")
     time.sleep(1)
-    eq_solver(a, b, c)
+    eq_solver(a,b,c)
 
-    retry = input("Do you want to try again? yes/no ")
-    if retry.lower() == "yes":  # Corrected this line
-        print("Restarting in 3 seconds...")
-        time.sleep(3)
-        a, b, c = float(input("Enter the first value: ")), float(input("Enter the second value: ")), float(input("Enter the third value: "))
-        options = input("Select your choice: calc/eq_solver")
-        if options.lower() == "calc":
-            print("Starting calculation...")
-            time.sleep(2)
-            print(".")
-            time.sleep(1)
-            print(".")
-            time.sleep(1)
-            print(".")
-            time.sleep(1)
-            calc(a, b, c)
-        elif options.lower() == "eq_solver":
-            print("Starting equation solving...")
-            time.sleep(2)
-            print(".")
-            time.sleep(1)
-            print(".")
-            time.sleep(1)
-            print(".")
-            time.sleep(1)
-            eq_solver(a, b, c)
-        print("Have a nice day")
+
+retry = input("Do you want to try again? yes/no ")
+if retry.lower() == "yes":  # Corrected this line
+    print("Restarting in 3 seconds...")
+    time.sleep(3)
+    attempts = int(input("how many times do you want to retry: (int value!) "))
+    if attempts > 0:
+
+        for retry in range(attempts):
+
+            a, b, c = float(input("Enter the first value: ")), float(input("Enter the second value: ")), float(input("Enter the third value: "))
+            options = input("Select your choice: calc/eq_solver ")
+                
+                
+            if options.lower() == "calc":
+                print("Starting calculation...")
+                time.sleep(2)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                calc(a,b)
+                
+                
+            elif options.lower() == "eq_solver":
+                print("Starting equation solving...")
+                time.sleep(2)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                eq_solver(a,b,c)
+                
+            else:    
+                print("Have a nice day")
+        else:
+            
+            print("Have a nice day!")
     else:
-        print("Have a nice day!")
-else:
-    print("Invalid choice. Have a nice day!")
+        print("negative numbers unacceptable")
+    
