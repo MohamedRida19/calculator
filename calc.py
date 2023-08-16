@@ -61,16 +61,84 @@ def eq_solver(a, b, c):
         else:
             print("No real solutions.")
 
+#Function to solve system
+def system_solving():
+    time.sleep(1)
+    
+    print("enter the coefficient for the first equation: ")
+    
+    time.sleep(2)
+    
+    a1 = float(input("the first value: "))
+    b1 = float(input("the second value: "))
+    c1 = float(input("the third value: "))
+    
+    time.sleep(1)
+    
+    print("enter the coefficents for the second equation")
+    
+    time.sleep(2)
+    
+    a2 = float(input("the first value: "))
+    b2 = float(input("the second value: "))
+    c2 = float(input("the third value: "))
+
+    delta = (a1*b2) - (b1*a2)
+    delta_x = (c1*b2) - (b1*c2)
+    delta_y = (a1*c2) - (c1*a2)
+
+    if delta == 0 :
+        if delta_x == delta_y == 0 :
+            print("infinit solutions")
+        else: 
+            print("no solutions for this!")
+    else:
+        x = delta_x/delta
+        y = delta_y/delta
+        print ("x=",round(x,2),"and y=",round(y,2))
+    method = input("do you want to see the method? ")
+    
+    if method == "yes" :
+        print("here is the method")
+        time.sleep(2)
+        if b1 < 0 :
+            print("your first equations is:",f'{a1}x  {b1}y = {c1}')
+        else :
+            print("your first equation is:",f'{a1}x + {b1}y = {c1}')
+        time.sleep(1)
+        if b2 < 0 :
+            print("your second equation is:",f'{a2}x  {b2}y = {c2}')
+        else:
+            print("your second equation is:",f'{a2}x + {b2}y = {c2}')
+        time.sleep(2)
+        print("using Cramer's Rule to find x and y")
+        time.sleep(2)
+        print("delta =",f'({a1}*{b2}) - ({b1}*{a2}) = {round(delta,2)})')
+        time.sleep(1)
+        print("delta-x =",f'({c1}*{b2}-({b1}*{c2})) = {round(delta_x,2)}')
+        time.sleep(1)
+        print("delta-y =",f'({a1}*{c2})-({c1}*{a2}) = {round(delta_y,2)}')
+        time.sleep(2)
+        print("the final result:")
+        time.sleep(1)
+        print("x="f'{round(delta_x,2)}/{round(delta,2)} = {round(x,2)}')
+        time.sleep(1)
+        print("y=",f'{round(delta_y,2)}/{round(delta,2)} = {round(y,2)}')
+    else:
+        time.sleep(1)
+        print("i hope you enjoying here!")
+        return
+
 # Welcome message
 print("Asalamo Alaykom! I hope you're enjoying here.")
 time.sleep(3)
 print("Welcome to my structured program")
 time.sleep(1)
-print("You can solve equations or perform calculations")
+print("You can solve equations and linear systems or perform calculations ")
 time.sleep(1)
 
 # Get user's choice
-options = input("Select your choice: calc/eq_solver ")
+options = input("Select your choice: calc/eq_solver/sys_solver ")
 
 # Based on user's choice, proceed accordingly
 if options.lower() == "calc":
@@ -81,10 +149,13 @@ elif options.lower() == "eq_solver":
         a,b,c = float(input("Enter the first value: ")), float(input("Enter the second value: ")),float(input("Enter the third value: "))
     else:
         pass
+elif options.lower()== "sys_solver" :
+    pass 
 else:
     print("Wrong input! Please try again.")
 
 # Perform calculations or equation solving based on the user's choice
+
 if options.lower() == "calc":
     print("Starting calculation...")
     time.sleep(2)
@@ -95,6 +166,7 @@ if options.lower() == "calc":
     print(".")
     time.sleep(1)
     calc(a, b)
+
 elif options.lower() == "eq_solver":
     print("Starting equation solving...")
     time.sleep(2)
@@ -106,6 +178,17 @@ elif options.lower() == "eq_solver":
     time.sleep(1)
     eq_solver(a, b, c)
 
+elif options.lower() == "sys_solver":
+    print("Starting system solving...")
+    time.sleep(2)
+    print(".")
+    time.sleep(1)
+    print(".")
+    time.sleep(1)
+    print(".")
+    time.sleep(1)
+    system_solving()
+
 # Retry option
 retry = input("Do you want to try again? (yes/no) ")
 if retry.lower() == "yes":
@@ -114,8 +197,23 @@ if retry.lower() == "yes":
     attempts = int(input("How many times do you want to retry? (integer value!) "))
     if attempts > 0:
         for retry in range(attempts):
-            a, b, c = float(input("Enter the first value: ")), float(input("Enter the second value: ")), float(input("Enter the third value: "))
-            options = input("Select your choice: calc/eq_solver ")
+            
+            options = input("Select your choice: calc/eq_solver/sys_solver ")
+
+            # Based on user's choice, proceed accordingly
+            if options.lower() == "calc":
+                a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
+            elif options.lower() == "eq_solver":
+                number3_check = input('Do you need the third value? (yes/no) ')
+                if number3_check.lower() == "yes":
+                    a,b,c = float(input("Enter the first value: ")), float(input("Enter the second value: ")),float(input("Enter the third value: "))
+                else:
+                    pass
+            elif options.lower()== "sys_solver" :
+                pass 
+            else:
+                print("Wrong input! Please try again.")
+
             if options.lower() == "calc":
                 print("Starting calculation...")
                 time.sleep(2)
@@ -136,6 +234,16 @@ if retry.lower() == "yes":
                 print(".")
                 time.sleep(1)
                 eq_solver(a, b, c)
+            elif options.lower() == "sys_solver":
+                print("Starting system solving...")
+                time.sleep(2)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                print(".")
+                time.sleep(1)
+                system_solving()
             else:
                 print("Have a nice day")
         else:
