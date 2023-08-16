@@ -188,7 +188,9 @@ elif options.lower() == "sys_solver":
     print(".")
     time.sleep(1)
     system_solving()
-
+else:
+    print("wrong sentence! you need to make sure that you enter the right key word")
+    pass
 # Retry option
 retry = input("Do you want to try again? (yes/no) ")
 if retry.lower() == "yes":
