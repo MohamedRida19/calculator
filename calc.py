@@ -196,62 +196,58 @@ retry = input("Do you want to try again? (yes/no) ")
 if retry.lower() == "yes":
     print("Restarting in 3 seconds...")
     time.sleep(3)
-    attempts = int(input("How many times do you want to retry? (integer value!) "))
-    if attempts > 0:
-        for retry in range(attempts):
-            
-            options = input("Select your choice: calc/eq_solver/sys_solver ")
+    while retry == "yes":                
+        options = input("Select your choice: calc/eq_solver/sys_solver ")
 
-            # Based on user's choice, proceed accordingly
-            if options.lower() == "calc":
-                a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
-            elif options.lower() == "eq_solver":
-                number3_check = input('Do you need the third value? (yes/no) ')
-                if number3_check.lower() == "yes":
-                    a,b,c = float(input("Enter the first value: ")), float(input("Enter the second value: ")),float(input("Enter the third value: "))
-                else:
-                    pass
-            elif options.lower()== "sys_solver" :
-                pass 
+        # Based on user's choice, proceed accordingly
+        if options.lower() == "calc":
+                    a, b = float(input("Enter the first value: ")), float(input("Enter the second value: "))
+        elif options.lower() == "eq_solver":
+            number3_check = input('Do you need the third value? (yes/no) ')
+            if number3_check.lower() == "yes":
+                a,b,c = float(input("Enter the first value: ")), float(input("Enter the second value: ")),float(input("Enter the third value: "))
             else:
-                print("Wrong input! Please try again.")
-
-            if options.lower() == "calc":
-                print("Starting calculation...")
-                time.sleep(2)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                calc(a, b)
-            elif options.lower() == "eq_solver":
-                print("Starting equation solving...")
-                time.sleep(2)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                eq_solver(a, b, c)
-            elif options.lower() == "sys_solver":
-                print("Starting system solving...")
-                time.sleep(2)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                print(".")
-                time.sleep(1)
-                system_solving()
-            else:
-                print("Have a nice day")
+                        pass
+        elif options.lower()== "sys_solver" :
+            pass 
         else:
-            print("Have a nice day!")
-    else:
-        print("Negative numbers are unacceptable")
+            print("Wrong input! Please try again.")
+
+        if options.lower() == "calc":
+            print("Starting calculation...")
+            time.sleep(2)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            calc(a, b)
+        elif options.lower() == "eq_solver":
+            print("Starting equation solving...")
+            time.sleep(2)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            eq_solver(a, b, c)
+        elif options.lower() == "sys_solver":
+            print("Starting system solving...")
+            time.sleep(2)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            print(".")
+            time.sleep(1)
+            system_solving()
+        else:
+                    print("Wrong input! pls try again")
+        retry = input("Do you want to try again? (yes/no) ")  
+    else: 
+        pass
 else:
-    print("have a nice day")
-    
+    print("Have a nice day!")
+        
